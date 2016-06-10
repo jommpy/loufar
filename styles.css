@@ -1,0 +1,177 @@
+body {
+margin:0px;
+}
+
+#fill_screen {
+position: fixed;
+width: 100%;
+height: 100%;
+left: 0;
+top: 0;
+right:0;
+bottom:0;
+background-color: red;
+}
+
+#navigation_bar{
+    position:fixed;
+    left:0;
+    top:0;
+    height:15%;
+    width:100%; 
+    background-color: white;
+    opacity:0.2;
+    z-index: 2000;
+}
+
+#logo_div {
+    background-color: red;
+    height:100%;
+    width:100%;
+    position:absolute;
+    top:0;
+    border-bottom:2px solid black;  
+}
+
+#logo_container {
+    background-image: url(images/Loufar_Logo.svg);
+    width: 500 px;
+    height: 500px; 
+}
+
+.information_div {
+    background-color: green;
+    height: 100%;
+    width: 100%;
+    position:absolute;
+    top:100%;
+    border-bottom:2px solid black;
+} 
+
+.image_div {
+    background-color: red;
+    height: 100%;
+    width: 100%;
+    position:absolute;
+    top:200%;
+    border-bottom:2px solid black;
+}  
+
+.menuButton {
+    background-color: transparant;
+    border: 0.15em #5e8ca5 solid;
+    color: #5e8ca5;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    width=25%;
+}
+
+
+#homeButton{
+    position:absolute;
+    border: 0.15em #5e8ca5 solid;
+    color: #5e8ca5;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    height:60%;
+    width:10%;
+    top:20%;
+    left:20%;
+}
+
+#informationButton{
+    position:absolute;
+    border: 0.15em #5e8ca5 solid;
+    color: #5e8ca5;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    height:60%;
+    width:10%;
+    top:20%;
+    left:36%;   
+}
+
+
+.itemWindow img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.bottom-banner {
+  padding: 30px 0;
+  margin-bottom: 0;
+  color: #000000
+  background-color: #000000;
+  background-size: cover;
+ }
+
+.diy-slideshow{
+position: relative;
+display: block;
+overflow: hidden;
+}
+figure{
+position: absolute;
+opacity: 0;
+transition: 1s opacity;
+}
+figcaption{
+position: absolute;
+font-family: sans-serif;
+font-size: .8em;
+bottom: .75em;
+right: .35em;
+padding: .25em;
+color: #fff;
+background: rgba(0,0,0, .25);
+border-radius: 2px;
+}
+figcaption a{
+color: #fff;
+}
+figure.show{
+opacity: 1;
+position: static;
+transition: 1s opacity;
+}
+.next, .prev{
+color: #fff;
+position: absolute;
+background: rgba(0,0,0, .6);
+top: 50%;
+z-index: 1;
+font-size: 2em;
+margin-top: -.75em;
+opacity: .3;
+user-select: none;
+}
+.next:hover, .prev:hover{
+cursor: pointer;
+opacity: 1;
+}
+.next{
+right: 0;
+padding: 10px 5px 15px 10px;
+border-top-left-radius: 3px;
+border-bottom-left-radius: 3px;
+}
+.prev{
+left: 0;
+padding: 10px 10px 15px 5px;
+border-top-right-radius: 3px;
+border-bottom-right-radius: 3px;
+}

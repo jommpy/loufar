@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+    <link href="styles.css" rel="stylesheet" type="text/css" />
+    
+    
+    <script>
+        $(document).ready(function () {  
+                    var top = $('#navigation_bar').offset().top - parseFloat($('#yourID').css('marginTop').replace(/auto/, 100));
+                    $(window).scroll(function (event) {
+                    // what the y position of the scroll is
+                    var y = $(this).scrollTop();
+
+                    // whether that's below the form
+                    if (y >= top) {
+                    // if so, ad the fixed class
+                    $('#navigation_bar').addClass('fixed');
+                    } else {
+                    // otherwise remove it
+                    $('#yourID').removeClass('fixed');
+                    }
+                    });
+                    });
+    </script>
+</head>
+<body>
+    <div id= "navigation_bar">
+        <button id="homeButton">Home</button>
+        <button id="informationButton">Information</button>
+        <button id="work">work</button>
+        <button id="references">references</button> 
+    </div>
+
+    <div class = "information_div">
+    </div>
+
+    <div class = "image_div">
+    </div>
+</body>
+</html>
