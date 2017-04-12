@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Design & Layout</title>
+    <link href="DesignAndLayout.css" rel="stylesheet" type="text/css" />
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script language="javascript" type="text/javascript">
+        window.onresize = function(){ location.reload(); }
+        $(document).ready(function () {
+                    var top = $('#navigation_bar').offset().top - parseFloat($('#navigation_bar').css('marginTop').replace(/auto/, 100));
+                    $(window).scroll(function (event) {
+                    // what the y position of the scroll is
+                    var y = $(this).scrollTop();
+
+                    // whether that's below the form
+                    if (y >= top) {
+                    // if so, ad the fixed class
+                    $('#navigation_bar').addClass('fixed');
+                    } else {
+                    // otherwise remove it
+                    $('#navigation_bar').removeClass('fixed');
+                    }
+                });
+            });
+
+        function goToByScroll(id){
+           $('html,body').animate({scrollTop : $(id).offset().top},'slow');
+        };
+
+        $('#preview').hover(function() {
+            $('body').css('background-coloer', 'black');
+            }, function() {
+            $('body').css('background', '');
+            });
+
+            $(function(){
+
+                $(window).load(function(){
+
+                    var $gal   = $("#propertyThumbnails"),
+                        galW   = $gal.outerWidth(true),
+                        galSW  = $gal[0].scrollWidth,
+                        wDiff  = (galSW/galW)-1,  // widths difference ratio
+                        mPadd  = 60,  // Mousemove Padding
+                        damp   = 20,  // Mousemove response softness
+                        mX     = 0,   // Real mouse position
+                        mX2    = 0,   // Modified mouse position
+                        posX   = 0,
+                        mmAA   = galW-(mPadd*2), // The mousemove available area
+                        mmAAr  = galW/mmAA;    // get available mousemove fidderence ratio
+
+                    $gal.mousemove(function(e) {
+                        mX = e.pageX - $(this).parent().offset().left - this.offsetLeft;
+                        mX2 = Math.min( Math.max(0, mX-mPadd), mmAA ) * mmAAr;
+                    });
+
+                    setInterval(function(){
+                        posX += (mX2 - posX) / damp; // zeno's paradox equation "catching delay"
+                        $gal.scrollLeft(posX*wDiff);
+                    }, 10);
+
+                });
+
+            });
+        </script>
+  </head>
+
+<body>
+    <div id= "navigation_bar">
+      <nav id="main_nav">
+  			<ul>
+  				<li>
+  					<a href="../loufar.html">Home</a>
+  				</li>
+  				<li>
+  					<a href="#" onclick="goToByScroll(projects_div)">Projects</a>
+  				</li>
+          <li>
+            <a href="#" onclick="goToByScroll(businesscards_div)">Business cards</a>
+          </li>
+    			<li>
+  					<a href="#" onclick="goToByScroll(flyers_div)">Flyers & Menu's</a>
+  				</li>
+          <li>
+            <a href="#" onclick="goToByScroll(logos_div)">Logos</a>
+          </li>
+          <li>
+            <a href="#" onclick="goToByScroll(cardesign_div)">Car design</a>
+          </li>
+  			</ul>
+		  </nav>
+    </div>
+    <div id ="projects_div"  class ="image_div">
+      <div class="preview" >
+       <img id="preview" src="bugs/01_GECKO_01.jpg.jpg" alt="">
+          <!-- The Modal -->
+        <div id="myModal" class="modal">
+          <span class="close">x</span>
+          <img class="modal-content" id="modalImg">
+          <div id="caption"></div>
+        </div>
+           <!--<img name="preview" id="preview" src="img/002.jpg" onclick="openNav();"/> -->
+      </div>
+      <div id=propertyThumbnails class="thumbnails">
+
+      </div>
+    </div>
+    <div id ="businesscards_div"  class ="image_div">
+      <div class="preview" >
+         <img id="preview" src="bugs/002.jpg" alt="">
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+            <span class="close">×</span>
+            <img class="modal-content" id="modalImg">
+            <div id="caption"></div>
+          </div>
+           <!--<img name="preview" id="preview" src="img/002.jpg" onclick="openNav();"/> -->
+      </div>
+      <div id=propertyThumbnails class="thumbnails">
+
+      </div>
+    </div>
+    <div id="flyers_div" class="image_div">
+      <p>test</p>
+    </div>
+    <div id="logos_div" class="image_div">
+      <p>test</p>
+    </div>
+    <div id="cardesign_div" class="image_div">
+      <p>test</p>
+    </div>
+
+
+    <script>
+      // Get the modal
+      var modal = document.getElementById('myModal');
+      // Get the image and insert it inside the modal - use its "alt" text as a caption
+      var img = document.getElementById('preview');
+      var modalImg = document.getElementById('modalImg');
+      //var captionText = document.getElementById("caption");
+      img.onclick = function(){
+          modal.style.display = "block";
+          modalImg.src = this.src;
+          //captionText.innerHTML = this.alt;
+      }
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+          modal.style.display = "none";
+      }
+
+    </script>
+
+</body>
+</html>

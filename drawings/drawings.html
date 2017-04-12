@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>drawings</title>
+    <link href="drawings.css" rel="stylesheet" type="text/css" />
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script language="javascript" type="text/javascript">
+        window.onresize = function(){ location.reload(); }
+        $(document).ready(function () {
+                    var top = $('#navigation_bar').offset().top - parseFloat($('#navigation_bar').css('marginTop').replace(/auto/, 100));
+                    $(window).scroll(function (event) {
+                    // what the y position of the scroll is
+                    var y = $(this).scrollTop();
+
+                    // whether that's below the form
+                    if (y >= top) {
+                    // if so, ad the fixed class
+                    $('#navigation_bar').addClass('fixed');
+                    } else {
+                    // otherwise remove it
+                    $('#navigation_bar').removeClass('fixed');
+                    }
+                });
+            return false});
+
+        function goToByScroll(id){
+           $('html,body').animate({scrollTop : $(id).offset().top},'slow');
+        };
+
+        $('#VariaPreview').hover(function() {
+            $('body').css('background-coloer', 'black');
+            }, function() {
+            $('body').css('background', '');
+            });
+
+            $(function(){
+
+                $(window).load(function(){
+
+                    var $gal   = $("#BugsThumbnails"),
+                        galW   = $gal.outerWidth(true),
+                        galSW  = $gal[0].scrollWidth,
+                        wDiff  = (galSW/galW)-1,  // widths difference ratio
+                        mPadd  = 60,  // Mousemove Padding
+                        damp   = 20,  // Mousemove response softness
+                        mX     = 0,   // Real mouse position
+                        mX2    = 0,   // Modified mouse position
+                        posX   = 0,
+                        mmAA   = galW-(mPadd*2), // The mousemove available area
+                        mmAAr  = galW/mmAA;    // get available mousemove fidderence ratio
+
+                    $gal.mousemove(function(e) {
+                        mX = e.pageX - $(this).parent().offset().left - this.offsetLeft;
+                        mX2 = Math.min( Math.max(0, mX-mPadd), mmAA ) * mmAAr;
+                    });
+
+                    setInterval(function(){
+                        posX += (mX2 - posX) / damp; // zeno's paradox equation "catching delay"
+                        $gal.scrollLeft(posX*wDiff);
+                    }, 10);
+
+                });
+
+            });
+            $('#VariaPreview').hover(function() {
+                $('body').css('background-coloer', 'black');
+                }, function() {
+                $('body').css('background', '');
+                });
+
+                $(function(){
+
+                    $(window).load(function(){
+
+                        var $gal   = $("#VariaThumbnails"),
+                            galW   = $gal.outerWidth(true),
+                            galSW  = $gal[0].scrollWidth,
+                            wDiff  = (galSW/galW)-1,  // widths difference ratio
+                            mPadd  = 60,  // Mousemove Padding
+                            damp   = 20,  // Mousemove response softness
+                            mX     = 0,   // Real mouse position
+                            mX2    = 0,   // Modified mouse position
+                            posX   = 0,
+                            mmAA   = galW-(mPadd*2), // The mousemove available area
+                            mmAAr  = galW/mmAA;    // get available mousemove fidderence ratio
+
+                        $gal.mousemove(function(e) {
+                            mX = e.pageX - $(this).parent().offset().left - this.offsetLeft;
+                            mX2 = Math.min( Math.max(0, mX-mPadd), mmAA ) * mmAAr;
+                        });
+
+                        setInterval(function(){
+                            posX += (mX2 - posX) / damp; // zeno's paradox equation "catching delay"
+                            $gal.scrollLeft(posX*wDiff);
+                        }, 10);
+
+                    });
+
+                });
+        </script>
+  </head>
+
+<body>
+    <div id= "navigation_bar">
+      <nav id="main_nav">
+  			<ul>
+  				<li>
+  					<a href="../loufar.html">Home</a>
+  				</li>
+  				<li>
+  					<a href="#" type="button" onclick="return goToByScroll(bugs_div)">Bugs</a>
+  				</li>
+          <li>
+            <a href="#" type="button" onclick="return goToByScroll(varia_div)">Varia</a>
+          </li>
+    			<li>
+  					<a href="#" type="button" onclick="return goToByScroll(wip_div)">Work In Progress</a>
+  				</li>
+  			</ul>
+		  </nav>
+    </div>
+    <div id ="bugs_div"  class ="image_div">
+      <div class="preview" >
+        <div class="previewTitle">
+          Bugs
+        </div>
+       <img id="BugsPreview" src="bugs/01_GECKO_01.jpg" alt="test">
+          <!-- The Modal -->
+        <div id="myModal" class="modal">
+          <span class="close">x</span>
+          <img class="modal-content" id="modalImg">
+          <div id="caption"></div>
+        </div>
+           <!--<img name="preview" id="preview" src="img/002.jpg" onclick="openNav();"/> -->
+      </div>
+      <div id=BugsThumbnails class="thumbnails">
+        <img onmouseover="getElementById('BugsPreview').src=getElementById('img1').src" id="img1" src="bugs/01_GECKO_01.jpg" alt="test" />
+        <img onmouseover="getElementById('BugsPreview').src=getElementById('img2').src" id="img2" src="bugs/02_Butterfly_01.jpg" alt="" />
+        <img onmouseover="getElementById('BugsPreview').src=getElementById('img3').src" id="img3" src="bugs/03_MEIKEVER_01.jpg" alt="" />
+        <img onmouseover="getElementById('BugsPreview').src=getElementById('img4').src" id="img4" src="bugs/03_MEIKEVER_02.jpg" alt="" />
+        <img onmouseover="getElementById('BugsPreview').src=getElementById('img5').src" id="img5" src="bugs/04_Butterflysmall_01.jpg" alt="" />
+        <img onmouseover="getElementById('BugsPreview').src=getElementById('img6').src" id="img6" src="bugs/04_Butterflysmall_02.jpg" alt="" />
+        <img onmouseover="getElementById('BugsPreview').src=getElementById('img7').src" id="img7" src="bugs/05_Beatle_01.jpg" alt="" />
+        <img onmouseover="getElementById('BugsPreview').src=getElementById('img8').src" id="img8" src="bugs/05_Beatle_02.jpg" alt="" />
+        <img onmouseover="getElementById('BugsPreview').src=getElementById('img9').src" id="img9" src="bugs/06_Beatle02_01.jpg" alt="" />
+        <img onmouseover="getElementById('BugsPreview').src=getElementById('img10').src" id="img10" src="bugs/06_Beatle02_02.jpg" alt="" />
+        <img onmouseover="getElementById('BugsPreview').src=getElementById('img11').src" id="img11" src="bugs/07_Kever_01.jpg" alt="" />
+        <img onmouseover="getElementById('BugsPreview').src=getElementById('img12').src" id="img12" src="bugs/07_Kever_02.jpg" alt="" />
+        <img onmouseover="getElementById('BugsPreview').src=getElementById('img22').src" id="img22" src="bugs/13_Fish_01.jpg" alt="" />
+        <img onmouseover="getElementById('BugsPreview').src=getElementById('img23').src" id="img23" src="bugs/13_Fish_02.jpg" alt="" />
+        <img onmouseover="getElementById('BugsPreview').src=getElementById('img24').src" id="img24" src="bugs/14_Crab_01.jpg" alt="" />
+        <img onmouseover="getElementById('BugsPreview').src=getElementById('img29').src" id="img29" src="bugs/17_Iguana_01.jpg" alt="" />
+        <img onmouseover="getElementById('BugsPreview').src=getElementById('img30').src" id="img30" src="bugs/18_Snake_01.jpg" alt="" />
+        <img onmouseover="getElementById('BugsPreview').src=getElementById('img31').src" id="img31" src="bugs/18_Snake_02.jpg" alt="" />
+        <img onmouseover="getElementById('BugsPreview').src=getElementById('img32').src" id="img32" src="bugs/19_Beatle03_01.jpg" alt="" />
+      </div>
+    </div>
+    <div id ="varia_div"  class ="image_div">
+      <div class="previewTitle">
+        Varia
+      </div>
+      <div class="preview" >
+         <img id="VariaPreview" src="varia/07_TheSea_01.jpg" alt="">
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+            <span class="close">×</span>
+            <img class="modal-content" id="modalImg">
+            <div id="caption"></div>
+          </div>
+           <!--<img name="preview" id="preview" src="img/002.jpg" onclick="openNav();"/> -->
+      </div>
+      <div id=VariaThumbnails class="thumbnails">
+        <img onmouseover="getElementById('VariaPreview').src=getElementById('img13').src" id="img13" src="varia/07_TheSea_01.jpg" alt="" />
+        <img onmouseover="getElementById('VariaPreview').src=getElementById('img14').src" id="img14" src="varia/08_TheRock_01.jpg" alt="" />
+        <img onmouseover="getElementById('VariaPreview').src=getElementById('img15').src" id="img15" src="varia/09_Box_01.jpg" alt="" />
+        <img onmouseover="getElementById('VariaPreview').src=getElementById('img16').src" id="img16" src="varia/10_KaartjesAlice_01.jpg" alt="" />
+        <img onmouseover="getElementById('VariaPreview').src=getElementById('img17').src" id="img17" src="varia/10_KaartjesAlice_02.jpg" alt="" />
+        <img onmouseover="getElementById('VariaPreview').src=getElementById('img18').src" id="img18" src="varia/11_Seducia_01.jpg" alt="" />
+        <img onmouseover="getElementById('VariaPreview').src=getElementById('img19').src" id="img19" src="varia/11_Seducia_02.jpg" alt="" />
+        <img onmouseover="getElementById('VariaPreview').src=getElementById('img20').src" id="img20" src="varia/12_Walkers_01.jpg" alt="" />
+        <img onmouseover="getElementById('VariaPreview').src=getElementById('img21').src" id="img21" src="varia/12_Walkers_02.jpg" alt="" />
+        <img onmouseover="getElementById('VariaPreview').src=getElementById('img25').src" id="img25" src="varia/15_LiveLove_01.jpg" alt="" />
+        <img onmouseover="getElementById('VariaPreview').src=getElementById('img26').src" id="img26" src="varia/15_LiveLove_02.jpg" alt="" />
+        <img onmouseover="getElementById('VariaPreview').src=getElementById('img27').src" id="img27" src="varia/16_Versus_01.jpg" alt="" />
+        <img onmouseover="getElementById('VariaPreview').src=getElementById('img28').src" id="img28" src="varia/16_Versus_02.jpg" alt="" />
+      </div>
+    </div>
+    <div id="wip_div" class="image_div">
+      <p>test</p>
+    </div>
+
+
+    <script>
+      // Get the modal
+      var modal = document.getElementById('myModal');
+      // Get the image and insert it inside the modal - use its "alt" text as a caption
+      var bugsImg = document.getElementById('BugsPreview');
+      var variaImg = document.getElementById('VariaPreview');
+
+      var modalImg = document.getElementById('modalImg');
+      //var captionText = document.getElementById("caption");
+
+      bugsImg.onclick = function(){
+        modal.style.display = "block";
+        modalImg.src = this.src;
+      }
+
+      variaImg.onclick = function(){
+          modal.style.display = "block";
+          modalImg.src = this.src;
+          //captionText.innerHTML = this.alt;
+      }
+
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+          modal.style.display = "none";
+      }
+
+    </script>
+
+</body>
+</html>

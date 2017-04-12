@@ -1,0 +1,285 @@
+@font-face {
+font-family: 'mjAlghifari';
+src: url('../font/webfont.eot'); /* IE9 Compat Modes */
+src: url('../font/webfont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+     url('../font/MJ_AlGhifari_Demo.woff') format('woff'), /* Modern Browsers */
+     url('../font/MJ_AlGhifari_Demo.ttf')  format('truetype'), /* Safari, Android, iOS */
+     url('../font/webfont.svg#svgFontName') format('svg'); /* Legacy iOS */
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+margin:0px;
+}
+
+#navigation_bar{
+    position:fixed;
+    left:0;
+    top:0;
+    height:10%;
+    width:100%;
+    background-color: white;
+    z-index: 2000;
+    border-bottom-style: solid;
+    border-bottom-color:  #daa520;
+    border-bottom-width: 5px;
+}
+
+.image_div{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+}
+
+#bugs_div{
+  top: 0%;
+}
+
+#varia_div{
+  top:100%;
+}
+
+#wip_div{
+  top:200%;
+}
+
+.itemWindow img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.button: hover {background-color: #f1f1f1}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #3e8e41;
+}
+
+
+
+.preview {
+  position:absolute;
+  top:11.5%;
+  width: 50%;
+  height: 60%;
+  left: 25%;
+}
+
+.previewTitle{
+  top:10%;
+  text-align: center;
+  font-size: 40px;
+  font-family: mjAlghifari;
+}
+
+.preview img{
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+
+.thumbnails {
+  position: absolute;
+  width: 100%;
+  height: 20%;
+  top: 80%;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.hidescrollbar{
+  position: absolute;
+  width: 100%;
+  height: 20%;
+  top:80%;
+  overflow-x:hidden;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+.thumbnails img {
+  height : 95%;
+  padding: 1px;
+  display: inline-block;
+}
+.preview img:hover + .overlay{
+    display:block;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    z-index: 3000;
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 100%;
+    max-width: 100%;
+}
+
+
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    z-index: 3001;
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+
+#main_nav{
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  color: #daa520;
+  background-color: black;
+  overflow: hidden;
+}
+
+#main_nav ul {
+  background: white;
+  color: #daa520;
+  float: left;
+  -webkit-transition: .5s;
+  transition: .5s;
+  display: inline-block;
+  width:100%;
+  height: 100%;
+  background-color: black;
+  font-family: mjAlghifari;
+}
+
+#main_nav li {
+  float: left;
+  position: relative;
+  width:25%;
+  margin-left: auto ;
+  margin-right: auto ;
+  list-style: none;
+  -webkit-transition: .5s;
+  transition: .5s;
+  text-align: center;
+  color: #daa520;
+}
+
+#main_nav > ul > li > a, h1 {
+  /*
+  text-transform: uppercase;
+  */
+  font-size: 130%;
+}
+
+#main_nav a {
+  display: block;
+  text-decoration: none;
+  color: #daa520;
+}
+
+#main_nav ul ul {
+  position: relative;;
+  left: 0;
+  top: 100%;
+  visibility: hidden;
+  opacity: 0;
+  margin-left: auto ;
+  margin-right: auto ;
+}
+
+#main_nav ul ul ul {
+  position: relative;
+  margin-left: auto ;
+  margin-right: auto ;
+
+}
+
+#main_nav li:hover, #main_nav li:hover li {
+  background: black;
+}
+
+#main_nav li li:hover, #main_nav li li:hover li {
+  background: black;
+}
+
+#main_nav li li li:hover {
+  background: black;
+}
+
+#main_nav li:hover > ul {
+  visibility: visible;
+  opacity: 1;
+}

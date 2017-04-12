@@ -2,13 +2,14 @@
 
 <html>
 <head>
-    <title></title>
+    <title>Loufars home page</title>
+    <link rel="icon" src="images/logo/loufar_icon.png" />
     <link href="styles.css" rel="stylesheet" type="text/css" />
-    
-    
-    <script>
-        $(document).ready(function () {  
-                    var top = $('#navigation_bar').offset().top - parseFloat($('#yourID').css('marginTop').replace(/auto/, 100));
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script language="javascript" type="text/javascript">
+        window.onresize = function(){ location.reload(); }
+        $(document).ready(function () {
+                    var top = $('#navigation_bar').offset().top - parseFloat($('#navigation_bar').css('marginTop').replace(/auto/, 100));
                     $(window).scroll(function (event) {
                     // what the y position of the scroll is
                     var y = $(this).scrollTop();
@@ -19,24 +20,161 @@
                     $('#navigation_bar').addClass('fixed');
                     } else {
                     // otherwise remove it
-                    $('#yourID').removeClass('fixed');
+                    $('#navigation_bar').removeClass('fixed');
                     }
-                    });
-                    });
-    </script>
-</head>
+                });
+            });
+
+        function sendEmail() {
+          window.location = "mailto:moens.laurens@gmail.com";
+        }
+
+        function goToByScroll(id){
+            $('html,body').animate({scrollTop : $(id).offset().top},'slow');
+        };
+
+        $('#preview').hover(function() {
+            $('body').css('background-color', 'black');
+            }, function() {
+            $('body').css('background', '');
+            });
+
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+        $(function(){
+          	$(window).load(function(){
+          		var $gal   = $("#propertyThumbnails"),
+          			galW   = $gal.outerWidth(true),
+          			galSW  = $gal[0].scrollWidth,
+          			wDiff  = (galSW/galW)-1,  // widths difference ratio
+          			mPadd  = 60,  // Mousemove Padding
+          			damp   = 20,  // Mousemove response softness
+          			mX     = 0,   // Real mouse positosition
+          			posX   = 0,
+          			mmAA   = galW-(mPadd*2), // The mousemove available area
+          			mmAAr  = (galW/mmAA);    // get available mousemove fidderence ratio
+          		$gal.mousemove(function(e) {
+          			mX = e.pageX - $(this).parent().offset().left - this.offsetLeft;
+          			mX2 = Math.min( Math.max(0, mX-mPadd), mmAA ) * mmAAr;
+          		});
+          		setInterval(function(){
+          			posX += (mX2 - posX) / damp; // zeno's paradox equation "catching delay"
+          			$gal.scrollLeft(posX*wDiff);
+          		}, 10);
+          	});
+          });
+        </script>
+  </head>
+
 <body>
     <div id= "navigation_bar">
-        <button id="homeButton">Home</button>
-        <button id="informationButton">Information</button>
-        <button id="work">work</button>
-        <button id="references">references</button> 
+      <!--
+        <button class="homeButton" onclick="goToByScroll(homeDiv)" >Home</button>
+        <div class="dropbtn" id="profile_drpdwn">
+          <button class="firstLevelBtn" onclick="showDropdownContent()">Profile</button>
+            <div id="profile_content" class="dropdown-content">
+              <a href="#" onclick="">About me</a>
+              <a href="#">References</a>
+            </div>
+        </div>
+        <div id="portfolio_drpdwn">
+            <button class="dropbtn" id="workButton" onclick="showDropdownContent(portfolio_content)">Portfolio/Works</button>
+                <div id="portfolio_content" class="dropdown-content">
+                  <a href="#" onclick="goToByScroll(workDiv)">Drawings</a>
+                  <a href="#">Design & Layout</a>
+                </div>
+        </div>
+        <button id="referencesButton" onclick="goToByScroll(referenceDiv)">Contact Me</button>
+      -->
+      <nav id="main_nav">
+			<ul>
+				<li>
+					<a href="#" type="button" onclick="goToByScroll(home_div)">Home</a>
+				</li>
+				<li>
+					<a href="#" type="button" onclick="goToByScroll(profile_div)">Profile</a>
+					<ul>
+						<li>
+							<a href="#" type="button" onclick="goToByScroll(profile_div)">About me</a>
+						</li>
+						<li>
+							<a href="#" type="button" onclick="goToByScroll(profile_div)">References</a>
+						</li>
+            <li>
+              <a href="#" type="button" onclick="goToByScroll(weblinks_div)">Social Media</a>
+            </li>
+					</ul>
+				</li>
+        <li>
+          <a type="button" href="">Portfolio</a>
+          <ul>
+            <li>
+              <a  href="drawings/drawings.html">Drawings</a>
+            </li
+            <li>
+              <a href="DesignAndLayout/DesignAndLayout.html">Designs</a>
+            </li>
+          </ul>
+        </li>
+				<li>
+					<a href="#" onclick="sendEmail()">Contact Me</a>
+				</li>
+			</ul>
+		</nav>
     </div>
+    <div id="home_div" >
+        <div class="logo_container">
+            <img src="images/logo/Loufar_Logo_White_Background.svg" >
+        </div>
+    </div>
+    <div id="profile_div">
+      <div class="homeTitle">About Me</div>
+      <div class="homeText">
+        <p>Mijn naam is Laurens Moens en ik ben een zelfstandig grafisch ontwerper voor printmedia in bijberoep.<br>
+          Denk hierbij aan visitekaartjes, uitnodigingen, complete huisstijlen, flyers, menu’s, logo’s, autobeletteringen...</p>
+        <p>De combinatie van technische kennis, creativiteit en persoonlijke opvolging is mijn meerwaarde naar klanten toe.</p>
+        <p>Daarnaast ben ik ook actief als kunstenaar en maak ik allerlei tekeningen, collages, muurschilderingen, T-shirts, stickers... (ook op aanvraag).</p>
+    </div>
+  </div>
+  <div id="reference_div">
+    <div class="homeTitle">References</div>
+    <div class="homeText">
+      <p>Schoonheidsinstituut Anneke<br>
+        Bezetwerken &amp Algemene Schrijnwerkerij Chris Ott<br>
+        Schoonheidssalon Joliesse<br>
+        Café Den Enghel<br>
+        Volleybalclub AC Valaan<br>
+        Freedom Soundsystem<br>
+        CVO Strombeek<br>
+        Aerenhouts Electro</p>
+    </div>
+  </div>
+  <div id="weblinks_div">
+    <div class="homeTitle"></div>
+    <div class="homeText">
+      <a href="https://www.facebook.com/LoufarDesigns/"><img class=image_link src="icons/black_facebook_icon.svg" ></a>
+      <a href="https://www.instagram.com/loufardesigns/"><img class=image_link src="icons/black_instagram_icon.svg"></a>
 
-    <div class = "information_div">
+      <!--<a href="https://www.instagram.com/loufardesigns/">Instagram</a>-->
     </div>
-
-    <div class = "image_div">
-    </div>
+  </div>
+  <div id=footer_bar>
+    <p>
+      Antwerpsesteenweg 334, 9040 Sint-Amandsberg ● 0470/51.89.16 ● moens.laurens@gmail.com ● BE 0669.805.487 ● BE 93 0018 0466 2667
+    </p>
+  </div>
 </body>
+
 </html>
