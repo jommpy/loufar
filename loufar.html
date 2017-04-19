@@ -56,7 +56,7 @@
         $(function(){
           	$(window).load(function(){
           		var $gal   = $("#propertyThumbnails"),
-          			galW   = $gal.outerWidth(true),
+          			galW   = $gal.outerWidth(true
           			galSW  = $gal[0].scrollWidth,
           			wDiff  = (galSW/galW)-1,  // widths difference ratio
           			mPadd  = 60,  // Mousemove Padding
@@ -80,59 +80,32 @@
 
 <body>
     <div id= "navigation_bar">
-      <!--
-        <button class="homeButton" onclick="goToByScroll(homeDiv)" >Home</button>
-        <div class="dropbtn" id="profile_drpdwn">
-          <button class="firstLevelBtn" onclick="showDropdownContent()">Profile</button>
-            <div id="profile_content" class="dropdown-content">
-              <a href="#" onclick="">About me</a>
-              <a href="#">References</a>
-            </div>
-        </div>
-        <div id="portfolio_drpdwn">
-            <button class="dropbtn" id="workButton" onclick="showDropdownContent(portfolio_content)">Portfolio/Works</button>
-                <div id="portfolio_content" class="dropdown-content">
-                  <a href="#" onclick="goToByScroll(workDiv)">Drawings</a>
-                  <a href="#">Design & Layout</a>
-                </div>
-        </div>
-        <button id="referencesButton" onclick="goToByScroll(referenceDiv)">Contact Me</button>
-      -->
+
       <nav id="main_nav">
-			<ul>
-				<li>
-					<a href="#" type="button" onclick="goToByScroll(home_div)">Home</a>
-				</li>
-				<li>
-					<a href="#" type="button" onclick="goToByScroll(profile_div)">Profile</a>
-					<ul>
-						<li>
-							<a href="#" type="button" onclick="goToByScroll(profile_div)">About me</a>
-						</li>
-						<li>
-							<a href="#" type="button" onclick="goToByScroll(profile_div)">References</a>
-						</li>
-            <li>
-              <a href="#" type="button" onclick="goToByScroll(weblinks_div)">Social Media</a>
-            </li>
-					</ul>
-				</li>
-        <li>
-          <a type="button" href="">Portfolio</a>
-          <ul>
-            <li>
-              <a  href="drawings/drawings.html">Drawings</a>
-            </li
-            <li>
-              <a href="DesignAndLayout/DesignAndLayout.html">Designs</a>
-            </li>
-          </ul>
-        </li>
-				<li>
-					<a href="#" onclick="sendEmail()">Contact Me</a>
-				</li>
-			</ul>
-		</nav>
+        <ul>
+          <li>
+            <a href="">Profile</a>
+          </li>
+          <li>
+            <a href="">Portfolio</a>
+            <ul>
+              <li>
+                <a href="">Drawings</a>
+              </li>
+              <li>
+                <a href="">Design </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="">Contact</a>
+          </li>
+        </ul>
+      </nav>
+      <div id="home_button">
+
+
+      </div>
     </div>
     <div id="home_div" >
         <div class="logo_container">

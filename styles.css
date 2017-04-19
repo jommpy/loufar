@@ -39,6 +39,7 @@ margin:0px;
     border-bottom-style: solid;
     border-bottom-color:  #daa520;
     border-bottom-width: 5px;
+    overflow: hidden;
 }
 
 #footer_bar{
@@ -291,12 +292,27 @@ margin:0px;
     }
 }
 
+#home_button{
+  position: relative;
+  width: 10%;
+  height: 100%;
+  float:left;
+  background-color: black;
+}
+
+#home_button img{
+  position: relative;
+  width: 10%;
+  height: inherit;
+}
+
 #main_nav{
-  width: 100%;
+  position: relative;
+  width: 90%;
   height: 100%;
   display: inline-block;
   color: #daa520;
-  background-color: black
+  background-color: black;
 }
 
 #main_nav ul {
@@ -314,7 +330,7 @@ margin:0px;
 #main_nav li {
   float: left;
   position: relative;
-  width:25%;
+  width:33%;
   margin-left: auto ;
   margin-right: auto ;
   list-style: none;
@@ -342,18 +358,17 @@ margin:0px;
 
 #main_nav ul ul {
   position: relative;;
-  left: 0;
-  top: 100%;
+  top: 125%;
   visibility: hidden;
   opacity: 0;
-
+  left:7%;
 }
 
 #main_nav ul ul ul {
   left: 100%;
   top: 0;
-
 }
+
 
 #main_nav li:hover, #main_nav li:hover li {
   background: black;
