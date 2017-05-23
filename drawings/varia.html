@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>drawings</title>
+    <link href="drawings.css" rel="stylesheet" type="text/css" />
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script language="javascript" type="text/javascript">
+        window.onresize = function(){ location.reload(); }
+        $(document).ready(function () {
+                    var top = $('#navigation_bar').offset().top - parseFloat($('#navigation_bar').css('marginTop').replace(/auto/, 100));
+                    $(window).scroll(function (event) {
+                    // what the y position of the scroll is
+                    var y = $(this).scrollTop();
+
+                    // whether that's below the form
+                    if (y >= top) {
+                    // if so, ad the fixed class
+                    $('#navigation_bar').addClass('fixed');
+                    } else {
+                    // otherwise remove it
+                    $('#navigation_bar').removeClass('fixed');
+                    }
+                });
+            return false});
+
+        function goToByScroll(id){
+           $('html,body').animate({scrollTop : $(id).offset().top},'slow');
+        };
+
+        $('#VariaPreview').hover(function() {
+            $('body').css('background-coloer', 'black');
+            }, function() {
+            $('body').css('background', '');
+            });
+
+            $(function(){
+
+                $(window).load(function(){
+
+                    var $gal   = $("#Thumbnails"),
+                        galW   = $gal.outerWidth(true),
+                        galSW  = $gal[0].scrollWidth,
+                        wDiff  = (galSW/galW)-1,  // widths difference ratio
+                        mPadd  = 60,  // Mousemove Padding
+                        damp   = 20,  // Mousemove response softness
+                        mX     = 0,   // Real mouse position
+                        mX2    = 0,   // Modified mouse position
+                        posX   = 0,
+                        mmAA   = galW-(mPadd*2), // The mousemove available area
+                        mmAAr  = galW/mmAA;    // get available mousemove fidderence ratio
+
+                    $gal.mousemove(function(e) {
+                        mX = e.pageX - $(this).parent().offset().left - this.offsetLeft;
+                        mX2 = Math.min( Math.max(0, mX-mPadd), mmAA ) * mmAAr;
+                    });
+
+                    setInterval(function(){
+                        posX += (mX2 - posX) / damp; // zeno's paradox equation "catching delay"
+                        $gal.scrollLeft(posX*wDiff);
+                    }, 10);
+
+                });
+
+            });
+            $('#VariaPreview').hover(function() {
+                $('body').css('background-coloer', 'black');
+                }, function() {
+                $('body').css('background', '');
+                });
+
+                $(function(){
+
+                    $(window).load(function(){
+
+                        var $gal   = $("#VariaThumbnails"),
+                            galW   = $gal.outerWidth(true),
+                            galSW  = $gal[0].scrollWidth,
+                            wDiff  = (galSW/galW)-1,  // widths difference ratio
+                            mPadd  = 60,  // Mousemove Padding
+                            damp   = 20,  // Mousemove response softness
+                            mX     = 0,   // Real mouse position
+                            mX2    = 0,   // Modified mouse position
+                            posX   = 0,
+                            mmAA   = galW-(mPadd*2), // The mousemove available area
+                            mmAAr  = galW/mmAA;    // get available mousemove fidderence ratio
+
+                        $gal.mousemove(function(e) {
+                            mX = e.pageX - $(this).parent().offset().left - this.offsetLeft;
+                            mX2 = Math.min( Math.max(0, mX-mPadd), mmAA ) * mmAAr;
+                        });
+
+                        setInterval(function(){
+                            posX += (mX2 - posX) / damp; // zeno's paradox equation "catching delay"
+                            $gal.scrollLeft(posX*wDiff);
+                        }, 10);
+
+                    });
+
+                });
+        </script>
+</head>
+<body>
+  <div id= "navigation_bar">
+    <nav id="main_nav">
+      <ul>
+        <li>
+          <a href="">Drawings</a>
+          <ul>
+            <li>
+              <a href="">Bugs</a>
+            </li>
+            <li>
+              <a href="">Varia</a>
+            </li>
+            <li>
+              <a href="">Work In Progress</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <div id="home_button_container">
+      <div id="home_button">
+        <img src="icons/home_button.gif">
+      </div>
+    </div>
+  </div>
+    <div class ="image_div">
+      <div class="previewTitle">
+        Varia
+      </div>
+      <div class="preview" >
+         <img id="VariaPreview" src="varia/07_TheSea_01.jpg" alt="">
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+            <span class="close">×</span>
+            <img class="modal-content" id="modalImg">
+            <div id="caption"></div>
+          </div>
+           <!--<img name="preview" id="preview" src="img/002.jpg" onclick="openNav();"/> -->
+      </div>
+      <div id="Thumbnails" class="thumbnails">
+        <img onmouseover="getElementById('VariaPreview').src=getElementById('img13').src" id="img13" src="varia/07_TheSea_01.jpg" alt="" />
+        <img onmouseover="getElementById('VariaPreview').src=getElementById('img14').src" id="img14" src="varia/08_TheRock_01.jpg" alt="" />
+        <img onmouseover="getElementById('VariaPreview').src=getElementById('img15').src" id="img15" src="varia/09_Box_01.jpg" alt="" />
+        <img onmouseover="getElementById('VariaPreview').src=getElementById('img16').src" id="img16" src="varia/10_KaartjesAlice_01.jpg" alt="" />
+        <img onmouseover="getElementById('VariaPreview').src=getElementById('img17').src" id="img17" src="varia/10_KaartjesAlice_02.jpg" alt="" />
+        <img onmouseover="getElementById('VariaPreview').src=getElementById('img18').src" id="img18" src="varia/11_Seducia_01.jpg" alt="" />
+        <img onmouseover="getElementById('VariaPreview').src=getElementById('img19').src" id="img19" src="varia/11_Seducia_02.jpg" alt="" />
+        <img onmouseover="getElementById('VariaPreview').src=getElementById('img20').src" id="img20" src="varia/12_Walkers_01.jpg" alt="" />
+        <img onmouseover="getElementById('VariaPreview').src=getElementById('img21').src" id="img21" src="varia/12_Walkers_02.jpg" alt="" />
+        <img onmouseover="getElementById('VariaPreview').src=getElementById('img25').src" id="img25" src="varia/15_LiveLove_01.jpg" alt="" />
+        <img onmouseover="getElementById('VariaPreview').src=getElementById('img26').src" id="img26" src="varia/15_LiveLove_02.jpg" alt="" />
+        <img onmouseover="getElementById('VariaPreview').src=getElementById('img27').src" id="img27" src="varia/16_Versus_01.jpg" alt="" />
+        <img onmouseover="getElementById('VariaPreview').src=getElementById('img28').src" id="img28" src="varia/16_Versus_02.jpg" alt="" />
+      </div>
+    </div>
+    <script>
+      // Get the modal
+      var modal = document.getElementById('myModal');
+      // Get the image and insert it inside the modal - use its "alt" text as a caption
+      var Img = document.getElementById('VariaPreview');
+
+      var modalImg = document.getElementById('modalImg');
+      //var captionText = document.getElementById("caption");
+
+      Img.onclick = function(){
+          modal.style.display = "block";
+          modalImg.src = this.src;
+          //captionText.innerHTML = this.alt;
+      }
+
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+          modal.style.display = "none";
+      }
+
+    </script>
+
+</body>
+</html>
