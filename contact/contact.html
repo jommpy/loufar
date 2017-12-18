@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Loufars home page</title>
+    <link rel="icon" src="images/logo/loufar_icon.png" />
+    <link href="contact.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div id="fill_screen">
+    <div id= "navigation_bar">
+      <nav id="main_nav">
+          <div id="header_container">
+
+          </div>
+      </nav>
+      <div id="home_button_container">
+        <div id="home_button">
+          <img src="icons/home_button.gif">
+        </div>
+      </div>
+    </div>
+    <div id="watermark"><img src="http://loufar.be/images/Loufar_watermark.svg"> </div>
+    <div id="contact_container">
+      <form id="inputForm" method="post" name="contact_form" action="contact-form-handler.php">
+          <label>
+            <input type="text" class="inputText" id="name" placeholder="name" />
+          </label>
+          <label>
+            <input type="text" class="inputText" id="email" placeholder="email" />
+          </label>
+          <label>
+            <input type="text" class="inputText" id="subject" placeholder="subject" />
+          </label>
+          <label>
+            <textarea type="text" class="inputText" id="message" rows="5" placeholder="message"></textarea>
+          </label>
+          <label>
+            <input type="submit" class="sendButton" value="Send" />
+          </label>
+      </form>
+    </div>
+    <div id=footer_bar>
+      <p>
+        Antwerpsesteenweg 334, 9040 Sint-Amandsberg ● 0470/51.89.16 ● moens.laurens@gmail.com ● BE 0669.805.487 ● BE 93 0018 0466 2667
+      </p>
+    </div>
+  </div>
+</body>
+<script>
+var frmvalidator  = new Validator("inputForm");
+frmvalidator.addValidation("name","req","Please provide your name");
+frmvalidator.addValidation("email","req","Please provide your email");
+frmvalidator.addValidation("email","email", "Please enter a valid email address");
+</script>
+
+
+
+As the others said, you can't. You can find good examples of HTML-php forms on the web, here's a very useful link that combines HTML with javascript for validation and php for sending the email.
+
+Please check the full article (includes zip example) in the source: http://www.html-form-guide.com/contact-form/php-email-contact-form.html
+
+HTML:
+
+<form method="post" name="contact_form"
+action="contact-form-handler.php">
+    Your Name:
+    <input type="text" name="name">
+    Email Address:
+    <input type="text" name="email">
+    Message:
+    <textarea name="message"></textarea>
+    <input type="submit" value="Submit">
+</form>
+
+JS:
+
+<script language="JavaScript">
+var frmvalidator  = new Validator("contactform");
+frmvalidator.addValidation("name","req","Please provide your name");
+frmvalidator.addValidation("email","req","Please provide your email");
+frmvalidator.addValidation("email","email",
+  "Please enter a valid email address");
+</script>
+</html>
